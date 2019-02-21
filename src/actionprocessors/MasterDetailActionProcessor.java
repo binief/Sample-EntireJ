@@ -81,4 +81,14 @@ public class MasterDetailActionProcessor extends EJDefaultFormActionProcessor {
 
 	}
 
+	@Override
+	public void postItemChanged(EJForm form, String blockName, String itemName, EJScreenType screenType)
+			throws EJActionProcessorException {
+		
+		System.out.println(itemName);
+		super.postItemChanged(form, blockName, itemName, screenType);
+	}
+	
+	
+
 }
