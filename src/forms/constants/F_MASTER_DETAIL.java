@@ -9,26 +9,28 @@ package forms.constants;
 public class F_MASTER_DETAIL {
 	public static final String ID = "MasterDetail";
 
-	public static class B_MASTER {
-		public static final String ID = "Master";
-		public static final String I_NAME = "name";
-		public static final String I_ID = "id";
-
-	}
-
-	public static class B_DETAIL {
-		public static final String ID = "Detail";
-		public static final String I_ID = "id";
-		public static final String I_MASTER_ID = "masterId";
-		public static final String I_ADDRESS = "address";
-
-	}
-
 	public static class B_ADDTOOLBAR {
 		public static final String ID = "addtoolbar";
 		public static final String I_NEW = "new";
 		public static final String I_EDIT = "edit";
 		public static final String I_DELETE = "delete";
+
+	}
+
+	public static class B_MASTER {
+		public static final String ID = "Master";
+		public static final String I_NAME = "name";
+		public static final String I_ID = "id";
+		public static final String I_VOTES = "votes";
+
+	}
+
+	public static class B_DETAILS {
+		public static final String ID = "Details";
+		public static final String I_VOTE = "vote";
+		public static final String I_ID = "id";
+		public static final String I_MASTER_ID = "masterId";
+		public static final String I_ADDRESS = "address";
 
 	}
 

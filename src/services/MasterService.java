@@ -14,7 +14,7 @@ import org.entirej.framework.core.service.EJStatementParameter;
 
 public class MasterService implements EJBlockService<Master> {
 	private final EJStatementExecutor _statementExecutor = new EJStatementExecutor();
-	private String _selectStatement = "SELECT id,name FROM master";
+	private String _selectStatement = "SELECT id,name,votes FROM master";
 
 	@Override
 	public List<Master> executeQuery(EJForm form, EJQueryCriteria queryCriteria) {
@@ -30,6 +30,7 @@ public class MasterService implements EJBlockService<Master> {
 			List<EJStatementParameter> parameters = new ArrayList<EJStatementParameter>();
 			parameters.add(new EJStatementParameter("id", Integer.class, record.getId()));
 			parameters.add(new EJStatementParameter("name", String.class, record.getName()));
+			parameters.add(new EJStatementParameter("votes", Double.class, record.getVotes()));
 			EJStatementParameter[] paramArray = new EJStatementParameter[parameters.size()];
 			recordsProcessed += _statementExecutor.executeInsert(form, "master", parameters.toArray(paramArray));
 			record.clearInitialValues();
@@ -50,6 +51,7 @@ public class MasterService implements EJBlockService<Master> {
 			// First add the new values
 			parameters.add(new EJStatementParameter("id", Integer.class, record.getId()));
 			parameters.add(new EJStatementParameter("name", String.class, record.getName()));
+			parameters.add(new EJStatementParameter("votes", Double.class, record.getVotes()));
 
 			EJStatementCriteria criteria = new EJStatementCriteria();
 
@@ -62,6 +64,11 @@ public class MasterService implements EJBlockService<Master> {
 				criteria.add(EJRestrictions.isNull("name"));
 			} else {
 				criteria.add(EJRestrictions.equals("name", record.getInitialValue(Master.FieldNames.name)));
+			}
+			if (record.getInitialValue(Master.FieldNames.votes) == null) {
+				criteria.add(EJRestrictions.isNull("votes"));
+			} else {
+				criteria.add(EJRestrictions.equals("votes", record.getInitialValue(Master.FieldNames.votes)));
 			}
 
 			EJStatementParameter[] paramArray = new EJStatementParameter[parameters.size()];
@@ -93,6 +100,11 @@ public class MasterService implements EJBlockService<Master> {
 				criteria.add(EJRestrictions.isNull("name"));
 			} else {
 				criteria.add(EJRestrictions.equals("name", record.getInitialValue(Master.FieldNames.name)));
+			}
+			if (record.getInitialValue(Master.FieldNames.votes) == null) {
+				criteria.add(EJRestrictions.isNull("votes"));
+			} else {
+				criteria.add(EJRestrictions.equals("votes", record.getInitialValue(Master.FieldNames.votes)));
 			}
 
 			EJStatementParameter[] paramArray = new EJStatementParameter[parameters.size()];

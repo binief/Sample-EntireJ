@@ -7,9 +7,23 @@ import org.entirej.framework.core.EJFieldName;
 public class Detail {
 	private HashMap<FieldNames<?>, Object> _initialValues = new HashMap<FieldNames<?>, Object>();
 
+	private Double _vote;
 	private Integer _id;
 	private Integer _masterId;
 	private String _address;
+
+	@EJFieldName("vote")
+	public Double getVote() {
+		return _vote;
+	}
+
+	@EJFieldName("vote")
+	public void setVote(Double vote) {
+		_vote = vote;
+		if (!_initialValues.containsKey(FieldNames.vote)) {
+			_initialValues.put(FieldNames.vote, vote);
+		}
+	}
 
 	@EJFieldName("id")
 	public Integer getId() {
@@ -56,6 +70,9 @@ public class Detail {
 			return (T) _initialValues.get(fieldName);
 		} else {
 
+			if (fieldName.equals(FieldNames.vote)) {
+				return (T) getVote();
+			}
 			if (fieldName.equals(FieldNames.id)) {
 				return (T) getId();
 			}
@@ -73,6 +90,8 @@ public class Detail {
 	public void clearInitialValues() {
 		_initialValues.clear();
 
+		_initialValues.put(FieldNames.vote, _vote);
+
 		_initialValues.put(FieldNames.id, _id);
 
 		_initialValues.put(FieldNames.master_id, _masterId);
@@ -82,6 +101,7 @@ public class Detail {
 
 	public static class FieldNames<T> {
 
+		public static final FieldNames<java.lang.Double> vote = new FieldNames<>();
 		public static final FieldNames<java.lang.Integer> id = new FieldNames<>();
 		public static final FieldNames<java.lang.Integer> master_id = new FieldNames<>();
 		public static final FieldNames<java.lang.String> address = new FieldNames<>();

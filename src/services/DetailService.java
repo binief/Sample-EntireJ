@@ -14,7 +14,7 @@ import org.entirej.framework.core.service.EJStatementParameter;
 
 public class DetailService implements EJBlockService<Detail> {
 	private final EJStatementExecutor _statementExecutor = new EJStatementExecutor();
-	private String _selectStatement = "SELECT address,id,master_id FROM detail";
+	private String _selectStatement = "SELECT address,id,master_id,vote FROM detail";
 
 	@Override
 	public List<Detail> executeQuery(EJForm form, EJQueryCriteria queryCriteria) {
@@ -31,6 +31,7 @@ public class DetailService implements EJBlockService<Detail> {
 			parameters.add(new EJStatementParameter("address", String.class, record.getAddress()));
 			parameters.add(new EJStatementParameter("id", Integer.class, record.getId()));
 			parameters.add(new EJStatementParameter("master_id", Integer.class, record.getMasterId()));
+			parameters.add(new EJStatementParameter("vote", Double.class, record.getVote()));
 			EJStatementParameter[] paramArray = new EJStatementParameter[parameters.size()];
 			recordsProcessed += _statementExecutor.executeInsert(form, "detail", parameters.toArray(paramArray));
 			record.clearInitialValues();
@@ -52,6 +53,7 @@ public class DetailService implements EJBlockService<Detail> {
 			parameters.add(new EJStatementParameter("address", String.class, record.getAddress()));
 			parameters.add(new EJStatementParameter("id", Integer.class, record.getId()));
 			parameters.add(new EJStatementParameter("master_id", Integer.class, record.getMasterId()));
+			parameters.add(new EJStatementParameter("vote", Double.class, record.getVote()));
 
 			EJStatementCriteria criteria = new EJStatementCriteria();
 
@@ -69,6 +71,11 @@ public class DetailService implements EJBlockService<Detail> {
 				criteria.add(EJRestrictions.isNull("master_id"));
 			} else {
 				criteria.add(EJRestrictions.equals("master_id", record.getInitialValue(Detail.FieldNames.master_id)));
+			}
+			if (record.getInitialValue(Detail.FieldNames.vote) == null) {
+				criteria.add(EJRestrictions.isNull("vote"));
+			} else {
+				criteria.add(EJRestrictions.equals("vote", record.getInitialValue(Detail.FieldNames.vote)));
 			}
 
 			EJStatementParameter[] paramArray = new EJStatementParameter[parameters.size()];
@@ -105,6 +112,11 @@ public class DetailService implements EJBlockService<Detail> {
 				criteria.add(EJRestrictions.isNull("master_id"));
 			} else {
 				criteria.add(EJRestrictions.equals("master_id", record.getInitialValue(Detail.FieldNames.master_id)));
+			}
+			if (record.getInitialValue(Detail.FieldNames.vote) == null) {
+				criteria.add(EJRestrictions.isNull("vote"));
+			} else {
+				criteria.add(EJRestrictions.equals("vote", record.getInitialValue(Detail.FieldNames.vote)));
 			}
 
 			EJStatementParameter[] paramArray = new EJStatementParameter[parameters.size()];

@@ -9,6 +9,7 @@ public class Master {
 
 	private String _name;
 	private Integer _id;
+	private Double _votes;
 
 	@EJFieldName("name")
 	public String getName() {
@@ -36,6 +37,19 @@ public class Master {
 		}
 	}
 
+	@EJFieldName("votes")
+	public Double getVotes() {
+		return _votes;
+	}
+
+	@EJFieldName("votes")
+	public void setVotes(Double votes) {
+		_votes = votes;
+		if (!_initialValues.containsKey(FieldNames.votes)) {
+			_initialValues.put(FieldNames.votes, votes);
+		}
+	}
+
 	@SuppressWarnings("unchecked")
 	public <T> T getInitialValue(FieldNames<T> fieldName) {
 		if (_initialValues.containsKey(fieldName)) {
@@ -48,6 +62,9 @@ public class Master {
 			if (fieldName.equals(FieldNames.id)) {
 				return (T) getId();
 			}
+			if (fieldName.equals(FieldNames.votes)) {
+				return (T) getVotes();
+			}
 
 			return null;
 		}
@@ -59,12 +76,15 @@ public class Master {
 		_initialValues.put(FieldNames.name, _name);
 
 		_initialValues.put(FieldNames.id, _id);
+
+		_initialValues.put(FieldNames.votes, _votes);
 	}
 
 	public static class FieldNames<T> {
 
 		public static final FieldNames<java.lang.String> name = new FieldNames<>();
 		public static final FieldNames<java.lang.Integer> id = new FieldNames<>();
+		public static final FieldNames<java.lang.Double> votes = new FieldNames<>();
 		T type;
 	}
 
