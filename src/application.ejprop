@@ -181,6 +181,21 @@
                         <hideMargin>false</hideMargin>
                         <items>
                             <item type="COMPONENT">
+                                <name><![CDATA[component_2]]></name>
+                                <title></title>
+                                <fill><![CDATA[BOTH]]></fill>
+                                <grab><![CDATA[NONE]]></grab>
+                                <hHint>32</hHint>
+                                <wHint>0</wHint>
+                                <hMin>0</hMin>
+                                <wMin>0</wMin>
+                                <hSpan>2</hSpan>
+                                <VSpan>1</VSpan>
+                                <renderer><![CDATA[FormToolBar]]></renderer>
+                                <rendererProperties>
+                                </rendererProperties>
+                            </item>
+                            <item type="COMPONENT">
                                 <name><![CDATA[component_3]]></name>
                                 <title></title>
                                 <fill><![CDATA[BOTH]]></fill>
