@@ -73,58 +73,6 @@ public class MasterDetailActionProcessor extends EJDefaultFormActionProcessor {
 		form.getBlock(F_MASTER_DETAIL.B_MASTER.ID).executeQuery(crit);
 	}
 
-	@Override
-	public void postBlockQuery(EJForm form, EJBlock block) throws EJActionProcessorException {
-		// super.postBlockQuery(form, block);
-
-		EJBlock masterBlock = form.getBlock(F_MASTER_DETAIL.B_MASTER.ID);
-		EJRecord masterRecord = masterBlock.getFocusedRecord();
-
-		/*
-		 * EJItem id = masterRecord.getItem(F_MASTER_DETAIL.B_MASTER.I_ID);
-		 * 
-		 * if (id == null)
-		 */
-		// form.getBlock(F_MASTER_DETAIL.B_ADDTOOLBAR.ID)block.
-		/*
-		 * else form.getBlock(F_MASTER_DETAIL.B_ADDTOOLBAR.I_NEW).setDisplayProperty(
-		 * "Visible", "true");
-		 */
-
-	}
-
-	@Override
-	public void postItemChanged(EJForm form, String blockName, String itemName, EJScreenType screenType)
-			throws EJActionProcessorException {
-
-		super.postItemChanged(form, blockName, itemName, screenType);
-		/*
-		 * Double totalVote = 0d;
-		 * 
-		 * if (blockName.equals(form.getBlock(F_MASTER_DETAIL.B_DETAILS.ID).getName()))
-		 * {
-		 * 
-		 * Collection<EJRecord> records =
-		 * form.getBlock(F_MASTER_DETAIL.B_DETAILS.ID).getBlockRecords(); for (EJRecord
-		 * r : records) { EJItem vote = r.getItem(F_MASTER_DETAIL.B_DETAILS.I_VOTE);
-		 * 
-		 * totalVote = totalVote + Double.parseDouble(vote.getValue().toString()); }
-		 * 
-		 * EJBlock masterBlock = form.getBlock(F_MASTER_DETAIL.B_DETAILS.ID); EJRecord
-		 * masterRecord = masterBlock.getFocusedRecord();
-		 * 
-		 * Double curValue = (Double)
-		 * masterRecord.getValue(F_MASTER_DETAIL.B_DETAILS.I_VOTE);
-		 * 
-		 * // totalVote = totalVote - curValue; }
-		 * 
-		 * totalVote = totalVote + currentValue;
-		 * 
-		 * EJBlock masterBlock = form.getBlock(F_MASTER_DETAIL.B_MASTER.ID); EJRecord
-		 * masterRecord = masterBlock.getFocusedRecord();
-		 * masterRecord.setValue(F_MASTER_DETAIL.B_MASTER.I_VOTES, totalVote);
-		 */
-	}
 
 	@Override
 	public void validateItem(EJForm form, String blockName, String itemName, EJScreenType screenType,

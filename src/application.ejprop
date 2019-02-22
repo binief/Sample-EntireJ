@@ -51,6 +51,10 @@
         </propertyGroup>
         <propertyGroup name="SERVICE">
         </propertyGroup>
+        <propertyGroup name="SPRING_SECURITY">
+            <property name="SPRING_SECURITY_CONFIG" multilingual="false" propertyType="PROJECT_CLASS_FILE"><![CDATA[org.entirej.EJSecurityConfig]]></property>
+            <property name="SPRING_SECURITY_AUTH" multilingual="false" propertyType="PROJECT_CLASS_FILE"><![CDATA[org.entirej.EJAuthenticationProvider]]></property>
+        </propertyGroup>
     </applicationDefinedProperties>
     <packages>
         <formsPackage name="forms"/>
